@@ -2396,7 +2396,7 @@ class YoutubeIE(YoutubeBaseInfoExtractor):
                 raise ExtractorError(
                     'YouTube said: %s' % reason,
                     expected=True, video_id=video_id)
-            if video_info.get('license_info') or try_get(player_response, lambda x: x['streamingData']['licenseInfos']):
+            if video_info.get('license_info'):
                 raise ExtractorError('This video is DRM protected.', expected=True)
 
         self._sort_formats(formats)
